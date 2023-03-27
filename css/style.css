@@ -1,0 +1,102 @@
+html { background-color: #FFFFFF;
+}
+
+
+body {
+    font-family: Helvetica, Arial, sans-serif; 
+     font-weight: 400;
+     font-size: 15px;
+     /*Sets the font size to 25px */
+     line-height: 1.6;
+     /* Sets the line-height to 1.6 */
+     text-decoration: none; 
+}
+
+h1   {
+     font-size: 25px;
+     font-family: 'Great Vibes', cursive;  
+     font-weight: 700;
+     text-decoration: underline;
+}
+
+h2   {
+     font-size: 20px;
+     font-weight: 700;
+}
+
+h3   {
+     font-size: 15px;
+     font-weight: 700;
+}
+
+a    {
+     color:#8897AA;
+   }
+
+a   visited {
+     /* visited link */
+     color: #3d1255;
+    }
+
+a hover, a:focus {
+  /* No underlining when hovering over a link */
+    text-decoration: none;
+  }
+
+a active {
+    /* selected link */
+    color: #489c80;
+  }
+
+.button {
+   /* overwrites broswer defaults and resets the border */
+   border: none;
+   display: inline-block;
+   /* takes the font from the outer container */
+   font-family: inherit;
+   /* styles the background color, font color, and text
+    decoration (underline, etc.) of the button */
+   background-color: #357b70;
+   color: white;
+   text-decoration: none;
+   /* adds spacing to the button */
+   padding: 10px;
+   border-radius: 3px;
+   /* gives the button a bottom border with a width of 2px, a type of solid,
+   and a color in RGBA format */
+   border-bottom: 2px solid rgba (0, 0, 0, 0.3);
+   transition: 0.2s opacity;
+  }
+
+.page-header {
+   display: flex;
+   width: 100%;
+   padding: 20px;
+  }
+
+  .page-header {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+   }
+ 
+ .page-header__item {
+    flex: 0 1 200px;
+  }
+ 
+ .page-header__item:last-child {
+    flex-grow: 1;
+    text-align: right;
+  }
+ 
+
+.page-footer {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex-basis: 100px; 
+    flex-grow: 1; 
+    flex-shrink: 1; 
+
+ }
