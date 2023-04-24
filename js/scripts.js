@@ -1,8 +1,7 @@
-let pokemonList = (function () { [
-  
-];
+let pokemonRepository = (function () {
+let pokemonArray = []; // empty array
 
-pokemonList = [ //pokemon objects 
+pokemonArray = [ //pokemon objects 
                    {
                     name:'Squirtle', 
                     height:'1.08', 
@@ -26,9 +25,29 @@ pokemonList = [ //pokemon objects
                     name: ' Arbok ',
                     height: '11.06', type: ['Cobra']
                   }]
-                  
-function myLoopFunction(pokemon) {
+    
+  function add(pokemon) {
+    pokemonArray.push(pokemon);
+  }
+
+  function getAll() {
+    return pokemonArray;
+  }
+  
+  return {
+  add: add
+  getAll: getAll
+  
+  };
+})();
+
+console.log(pokemonRepository.getAll()); // []
+pokemonRepository.add({ name: 'Squirtle' });
+console.log(pokemonRepository.getAll()); // [ { name: 'Squirtle' } ]
+
+
+function getAll(pokemon) {
   document.write(pokemon.name + ' is ' + pokemon.height ,' tall and is a ' + pokemon.type , ' type of pokemon. ' );
 }
-pokemonList.forEach(myLoopFunction);
-})();
+pokemonArray.forEach(getAll);
+
