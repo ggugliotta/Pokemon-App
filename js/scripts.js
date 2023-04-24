@@ -27,11 +27,22 @@ pokemonArray = [ //pokemon objects
                   }]
     
   function add(pokemon) {
+   if (
+    typeof pokemon === "object" &&
+    "name" in pokemon &&
+    "height" in pokemon &&
+    "types" in pokemon
+   ) {
+    pokemonRepository.push(pokemon); 
+   } else {
+    console.log ("pokemon is not correct");
+   }
+  }   
     pokemonArray.push(pokemon);
   }
 
-  function getAll(pokemon) {
-    return pokemonArray;
+  function getAll() {
+    return pokemonRepository;
   }
   
   return {
@@ -44,7 +55,12 @@ console.log(pokemonRepository.getAll()); // []
 pokemonRepository.add({ name: 'Squirtle' });
 console.log(pokemonRepository.getAll()); // [ { name: 'Squirtle' } ]
 
-function getAll(pokemon) {
-  document.write(pokemon.name + ' is ' + pokemon.height ,' tall and is a ' + pokemon.type , ' type of pokemon. ' );
+pokemonRepository.getAll().forEach(function (item)) {
+  Var size; 
+  if (item.height >7) {
+    size = "It's GIGANTIC!";
+    { else {
+      size = "It's a little baby pokemon, how cute!";
+    }
+  }
 }
-pokemonArray.forEach(getAll);
