@@ -1,4 +1,5 @@
 let repository = []; // empty array
+let pokemonRepository = (function () {
 
 repository = [ //pokemon objects 
                    {
@@ -30,4 +31,22 @@ for (let i = 0; i <= repository.length; i++) {
     document.write(repository[i].name + ',' + repository[i].height  + ',' + repository[i].type );
   }
  }
+
+    function getAll() {
+        return pokemonList
+    }
+
+    return {
+        add: add,
+        getAll: getAll,
+    }
+})()
+
+console.log(pokemonRepository.getAll()) // []
+pokemonRepository.add({
+    name: 'Squirtle',
+    height: '1.08',
+    type: ['water, dragon'],
+})
+console.log(pokemonRepository.getAll()) // [ { 'name:Squirtle', height: '1.08', type: [ 'water, dragon' ] } ]
 
