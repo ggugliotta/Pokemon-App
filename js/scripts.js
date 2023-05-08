@@ -47,9 +47,31 @@ let pokemonRepository = (function () {
         return pokemonList
     }
 
+    function addListItem(pokemon) {
+        let pokemonList = document.querySelector('.pokemon-list')
+        let listpokemon = document.createElement('li')
+
+        let button = document.createElement('button')
+        button.innerText = pokemon.name
+        button.classList.add('button-class')
+        listpokemon.appendChild(button)
+        pokemonList.appendChild(listpokemon)
+
+        let button = document
+            .createElement('button')
+            .button.addEventListener('click', function () {
+                console.log(pokemon)
+            })
+    }
+
+    function showDetails(pokemon) {
+        console.log(pokemon)
+    }
+
     return {
         add: add,
         getAll: getAll,
+        addListItem: addListItem,
     }
 })()
 
@@ -62,11 +84,5 @@ pokemonRepository.add({
 console.log(pokemonRepository.getAll()) // [ { 'name:Squirtle', height: '1.08', type: [ 'water, dragon' ] } ]
 
 pokemonRepository.getAll().forEach(function (pokemon) {
-    var size
-    if (pokemon.height < 5) {
-        size = 'is small.'
-    } else {
-        size = "Wow that's big!"
-    }
-    document.write(pokemon.name + ' ' + size)
+    pokemonRepository.addListItem(pokemon)
 })
