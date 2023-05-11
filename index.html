@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
         <title>Simple JS App</title>
     </head>
 
@@ -18,7 +18,12 @@
             />
         </header>
         <h1>pokedex</h1>
+        <p>List of some Pokemons stats</p>
         <ul class="pokemon-list"></ul>
-        <script src="js/scripts.js"></script>
+        <strong>
+            <script src="js/promise-polyfill.js"></script>
+            <script src="js/fetch-polyfill.js"></script>
+            <script src="js/scripts.js"></script>
+        </strong>
     </body>
 </html>
