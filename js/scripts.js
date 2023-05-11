@@ -51,14 +51,14 @@ let pokemonRepository = (function () {
     }
 
     function loadDetails(item) {
-        let url = item.detailsUrl
-        return fetch(url)
+        let url = item.detailsapiUrl
+        return fetch(apiUrl)
             .then(function (response) {
                 return response.json()
             })
             .then(function (details) {
                 //add the details to the item
-                item.imgUrl = details.sprites.front_default
+                item.imageUrl = details.sprites.front_default
                 item.height = details.height
                 item.types - details.types
             })
