@@ -39,10 +39,10 @@ let pokemonRepository = (function () {
                 json.results.forEach(function (item) {
                     let pokemon = {
                         name: item.name,
-                        detailsUrl: item.apiUrl,
+                        detailsUrl: item.url,
                     }
                     add(pokemon)
-                    console.log(pokemon)
+                    console.log()
                 })
             })
             .catch(function (e) {
@@ -51,8 +51,8 @@ let pokemonRepository = (function () {
     }
 
     function loadDetails(item) {
-        let url = item.detailsapiUrl
-        return fetch(apiUrl)
+        let url = item.detailsUrl
+        return fetch(url)
             .then(function (response) {
                 return response.json()
             })
