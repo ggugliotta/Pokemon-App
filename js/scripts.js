@@ -1,6 +1,8 @@
+// pokemonRepository wrapped in IIFE
 let pokemonRepository = (function () {
     let pokemonList = [] // empty array
-    pokemonList = []
+
+    //External pokemon repository with 150 pokemons listed
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150'
 
     function add(pokemon) {
@@ -18,16 +20,17 @@ let pokemonRepository = (function () {
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.pokemon-list')
         let listpokemon = document.createElement('li')
+        listpokemon.classList.add('list-group-item')
 
         let button = document.createElement('button')
-        button.innerText = pokemon.name
-        button.classList.add('button-class')
-        listpokemon.appendChild(button)
-        pokemonList.appendChild(listpokemon)
 
         button.addEventListener('click', function (event) {
             showDetails(pokemon)
         })
+
+        button.innerText = pokemon.name
+        listpokemon.appendChild(button)
+        pokemonList.appendChild(listpokemon)
     }
 
     function loadList() {
@@ -42,7 +45,6 @@ let pokemonRepository = (function () {
                         detailsUrl: item.url,
                     }
                     add(pokemon)
-                    console.log()
                 })
             })
             .catch(function (e) {
@@ -61,30 +63,84 @@ let pokemonRepository = (function () {
                 item.imageUrl = details.sprites.front_default
                 item.height = details.height
                 item.types - details.types
+                showModal(item)
             })
             .catch(function (e) {
                 console.error(e)
             })
     }
 
-    function showDetails(item) {
-        pokemonRepository.loadDetails(item).then(function () {
-            console.log(item)
-        })
+    function showDetails(pokemon) {
+        loadDetails(pokemon)
     }
 
-    return {
-        add: add,
-        getAll: getAll,
-        addListItem: addListItem,
-        loadList: loadList,
-        loadDetails: loadDetails,
-        showDetails: showDetails,
-    }
-})()
+    let modalTitle = document.querySelector('#modal-title')
 
-pokemonRepository.loadList().then(function () {
-    pokemonRepository.getAll().forEach(function (pokemon) {
-        pokemonRepository.addListItem(pokemon)
-    })
-})
+    //Modal with pokemon name, height, and image
+    function showModal(pokemon) {
+        //Adds Pokemon name to modal
+        modalTitle.innerHTML = pokemon.name
+        let modal = document.createElement('div')
+        modal.classList.add('modal')
+
+        let closeButtonElement = document.createElement('button');
+        closeButtonElement.classList.add('modal-close');
+        closeButtonElement.innerText = 'Close';
+        closeButtonElement.addEventListener('click', hideModal);
+
+        // Adds <img> of pokemon to modal
+        let pokemonImage = document.querySelector('.pokemon-image')
+        pokemonImage.src = item.imageUrl
+
+        // Adds pokemon height to modal
+        let pokemonHeight = document.querySelector('.pokemon-height')
+        pokemonHeight.innerText = 'Height' + pokemon.height
+
+        // Modal close button
+        let closeButtonElement = document.createElement('button')
+        closeButtonElement.classList.add('modal-close')
+        closeButtonElement.innerText = 'X'
+        closeButtonElement.addEventListener('click', hideModal)
+    }
+
+    // Hide Modal function
+    function hideModal() {
+        let modalContainer = document.querySelector('#modal-container')
+        modalContainer.classList.remove('is-visible')
+        modalContainer.classList.add('modal')
+        modalCloseButton.innerHTML = ''
+    }
+
+    window.addEventListener('keydown', (e) => {
+        if (
+            e.key === 'Escape' &&
+            modalContainer.classList.contains('is-visible')
+        ) {
+            hideModal()
+        }
+
+        modalContainer.addEventListener('click', (e) => {
+            let target = e.target
+            if (target === modalContainer) {
+                hideModal()
+            }
+
+            // Return
+            return {
+                getALL: getAll,
+                add: add,
+                addListItem: addListItem,
+                loadList: loadList,
+                loadDetails: loadDetails,
+                showDetails: showDetails,
+                showModal: showModal,
+            }
+        })()
+
+        pokemonRepository.loadList().then(
+            (function () {
+                pokemonRepository.getAll().forEach(function (pokemon) {
+                    pokemonRepository.addListItem(pokemon)
+                }())
+            
+}())

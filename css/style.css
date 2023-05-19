@@ -1,71 +1,105 @@
-html { background-color: #FFFFFF;
+html {
+    background-color: #ffffff;
 }
 
-*{
+* {
     padding: 15px;
 }
 
-body {
-    font-family: Helvetica, Arial, sans-serif; 
-     font-weight: 400;
-     font-size: 20px;
-     /*Sets the font size to 25px */
-     line-height: 1.6;
-     /* Sets the line-height to 1.6 */
-     text-decoration: none; 
-}
-
-h1   {
-     font-size: 25px;
-     font-family: 'Great Vibes', cursive;  
-     font-weight: 700;
-     text-decoration: underline;
-}
-
 .page-header {
-   display: flex;
-   width: 100%;
-   padding: 5px;
-  }
-
-  .page-header {
     display: flex;
     width: 100%;
     padding: 5px;
-   }
+}
 
+.page-header {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+}
 
 .page-footer {
     clear: both;
     display: flex;
     flex-direction: column;
     text-align: center;
-    flex-basis: 100px; 
-    flex-grow: 1; 
-    flex-shrink: 1; 
- }
-
-.button-class {
-  background-color: #4caf50
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  -webkit-transition-duration: 0.4s;
-  transitiion-duration: 0.4s;
-  cursor: pointer;
-  background-color: white;
-  color: black;
-  border: 2px solid #4caf50
+    flex-basis: 100px;
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
+.button-class {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid #4caf50;
+}
 
- }
+#modal-container.is-visible {
+    /* CSS for modal container - add CSS styles here */
+    display: block;
+}
 
+#modal-container {
+    position: fixed;
+    padding: 20px;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
 
+    /* to show it above other content */
+    z-index: 999;
 
+    /* to allow scrolling if the screen is not high enough*/
+    overflow: auto;
 
+    /* this is used to center the modal */
+    display: grid;
+    text-align: center;
+}
+
+.modal {
+    margin: auto;
+    display: inline-block;
+    box-sizing: border-box;
+    background: #fff;
+    padding: 15px;
+    width: 100%;
+    max-width: 700px;
+    text-align: left;
+}
+
+.modal-close {
+    float: right;
+    -webkit-apperance: none;
+    border: 0;
+    background: none;
+    color: #777;
+    text-decoration: underline;
+}
+
+.modal h1 {
+    margin-top: 0;
+}
+
+.modal p {
+    margin-bottom: 0;
+}
+
+#modal-container {
+    display: none;
+}
