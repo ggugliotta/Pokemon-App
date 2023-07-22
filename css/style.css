@@ -46,11 +46,6 @@ html {
     border: 2px solid #4caf50;
 }
 
-#modal-container.is-visible {
-    /* CSS for modal container - add CSS styles here */
-    display: block;
-}
-
 #modal-container {
     position: fixed;
     padding: 20px;
@@ -85,7 +80,7 @@ html {
 
 .modal-close {
     float: right;
-    -webkit-apperance: none;
+    -webkit-appearance: none;
     border: 0;
     background: none;
     color: #777;
@@ -102,4 +97,9 @@ html {
 
 #modal-container {
     display: none;
+}
+
+#modal-container.is-visible {
+    /* CSS for modal container - add CSS design styles here */
+    display: block;
 }
