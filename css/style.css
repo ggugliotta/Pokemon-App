@@ -47,6 +47,10 @@ html {
 }
 
 #modal-container {
+    display: none;
+}
+
+#modal-container.is-visible {
     position: fixed;
     padding: 20px;
     box-sizing: border-box;
@@ -93,13 +97,4 @@ html {
 
 .modal p {
     margin-bottom: 0;
-}
-
-#modal-container {
-    display: none;
-}
-
-#modal-container.is-visible {
-    /* CSS for modal container - add CSS design styles here */
-    display: block;
 }
