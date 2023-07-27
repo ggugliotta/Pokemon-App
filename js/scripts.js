@@ -122,7 +122,7 @@ let pokemonRepository = (function () {
         // used to add pokemon to unordered list in HTML
         let pokemonList = document.querySelector('.pokemon-list')
         let listpokemon = document.createElement('li')
-        listpokemon.classList.add('list-group-item')
+        listpokemon.classList.add('list-group-item', 'text-center', 'border-0')
 
         let button = document.createElement('button')
 
