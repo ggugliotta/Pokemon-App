@@ -2,8 +2,6 @@ let pokemonRepository = (function () {
     //wrapped pokemonList inside IIFE (Immediately Invoked Function Expression)
     let pokemonList = []
 
-    let modalContainer = document.querySelector('#modal-container')
-
     //External pokemon repository with 150 pokemons listed
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150'
 
@@ -66,10 +64,14 @@ let pokemonRepository = (function () {
     }
 
     function showModal(pokemon) {
-        let modalContainer = document.querySelector('#modal-container')
+        let modalBody = $('.modal-body')
+        let modalTitle = $('.modal-title')
+        let modalHeader = $('.modal-header')
 
         // Clear all existing modal content
-        modalContainer.innerHTML = ''
+        modalTitle.empty()
+        modalBody.empty()
+        //modalHeader.empty(); Why is this one commented out?
 
         let modal = document.createElement('div')
         modal.classList.add('modal')
@@ -80,26 +82,36 @@ let pokemonRepository = (function () {
         closeButtonElement.innerText = 'Close'
         closeButtonElement.addEventListener('click', hideModal)
 
-        let titleElement = document.createElement('h1')
-        titleElement.innerText = pokemon.name
+        //creating element for name in modal content
+        let nameElement = $('<h1>' + pokemon.name + '</h1>')
 
-        let imageElement = document.createElement('img')
-        imageElement.src = pokemon.imageUrl
+        // //creating img in modal content
+        let imageElementFront = $('<img class = "modal-img" style="width:50%">')
+        imageElementFront.attr('src', pokemon.imageUrlFront)
+        let imageElementBack = $('<img class="modal-img" style="width:50%">')
+        imageElementBack.attr('src', pokemon.imageUrlBack)
 
-        let heightElement = document.createElement('p')
-        heightElement.innerText = `Height: ${pokemon.height}`
+        // //creating element for height in modal content
+        let heightElement = $('<p>' + 'height : ' + item.height + '</p>')
 
-        let typesElement = document.createElement('p')
-        typesElement.innerText = `Types: ${pokemon.types
-            .map(({ type }) => type.name)
-            .join(', ')}`
+        // //creating element for weight in modal content
+        let weightElement = $('<p>' + 'weight : ' + item.weight + '</p>')
 
-        modal.appendChild(closeButtonElement)
-        modal.appendChild(titleElement)
-        modal.appendChild(imageElement)
-        modal.appendChild(heightElement)
-        modal.appendChild(typesElement)
-        modalContainer.appendChild(modal)
+        // //creating element for type in modal content
+        let typesElement = $('<p>' + 'types : ' + item.types + '</p>')
+
+        // //creating element for abilities in modal content
+        let abilitiesElement = $(
+            '<p>' + 'abilities : ' + item.abilities + '</p>'
+        )
+
+        modalTitle.append(nameElement)
+        modalBody.append(imageElementFront)
+        modalBody.append(imageElementBack)
+        modalBody.append(heightElement)
+        modalBody.append(weightElement)
+        modalBody.append(typesElement)
+        modalBody.append(abilitiesElement)
 
         modalContainer.classList.add('is-visible')
 
