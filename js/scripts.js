@@ -16,7 +16,6 @@ let pokemonRepository = (function () {
 
     function loadList() {
         //fetch data from api and add to pokemonList
-
         return fetch(apiUrl)
             .then(function (response) {
                 return response.json()
@@ -47,10 +46,11 @@ let pokemonRepository = (function () {
             })
             .then(function (details) {
                 //add the details to the item
+                item.name = details.name
                 item.imageUrl = details.sprites.front_default
                 item.height = details.height
                 item.weight = details.weight
-                item.attribute = details.attributes
+                item.abilities = details.abilities
                 item.types = details.types
             })
             .catch(function (e) {
@@ -86,13 +86,13 @@ let pokemonRepository = (function () {
         closeButtonElement.addEventListener('click', hideModal)
 
         //creating element for name in modal content
-        let nameElement = $('<h1>' + pokemon.name + '</h1>')
+        let nameElement = $('<h1>' + item.name + '</h1>')
 
         // //creating img in modal content
         let imageElementFront = $('<img class = "modal-img" style="width:50%">')
-        imageElementFront.attr('src', pokemon.imageUrlFront)
+        imageElementFront.attr('src', item.imageUrl)
         let imageElementBack = $('<img class="modal-img" style="width:50%">')
-        imageElementBack.attr('src', pokemon.imageUrlBack)
+        imageElementBack.attr('src', item.imageUrl)
 
         // //creating element for height in modal content
         let heightElement = $('<p>' + 'height : ' + item.height + '</p>')
