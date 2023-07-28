@@ -58,19 +58,10 @@ let pokemonRepository = (function () {
             })
     }
 
-    function showDetails(pokemon) {
-        //pokemon modal display
-        loadDetails(pokemon).then(function () {
-            showModal(pokemon)
-        })
-    }
-
     function addListItem(pokemon) {
         // used to add pokemon to unordered list in HTML
-        let pokemonList = document.querySelector('.pokemon-list')
-        let listpokemon = document.createElement('li')
         listpokemon.classList.add('list-group-item', 'text-center', 'border-0')
-        let button = document.createElement('button')
+        let button = '.btn'
         button.innerText = pokemon.name
         button.classList.add('btn', 'btn-primary')
         button.setAttribute('data-target')
