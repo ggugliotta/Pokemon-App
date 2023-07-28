@@ -67,6 +67,8 @@ let pokemonRepository = (function () {
         let modalBody = $('.modal-body')
         let modalTitle = $('.modal-title')
         let modalHeader = $('.modal-header')
+        roll = $('.modal-dialog', 'document')
+        arialabelledby = $('.modal-title')
 
         // Clear all existing modal content
         modalTitle.empty()
