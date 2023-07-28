@@ -124,14 +124,14 @@ let pokemonRepository = (function () {
         let listpokemon = document.createElement('li')
         listpokemon.classList.add('list-group-item', 'text-center', 'border-0')
 
-        let button = document.createElement('button')
+        let.btn = document.createElement('button')
 
-        button.addEventListener('click', function (event) {
+        btn.addEventListener('click', function (event) {
             showDetails(pokemon)
         })
 
-        button.innerText = pokemon.name
-        listpokemon.appendChild(button)
+        btn.innerText = pokemon.name
+        listpokemon.appendChild(btn)
         pokemonList.appendChild(listpokemon)
     }
 
