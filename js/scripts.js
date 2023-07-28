@@ -49,6 +49,8 @@ let pokemonRepository = (function () {
                 //add the details to the item
                 item.imageUrl = details.sprites.front_default
                 item.height = details.height
+                item.weight = details.weight
+                item.attribute = details.attributes
                 item.types = details.types
             })
             .catch(function (e) {
@@ -105,42 +107,41 @@ let pokemonRepository = (function () {
         let abilitiesElement = $(
             '<p>' + 'abilities : ' + item.abilities + '</p>'
         )
-
-        modalTitle.append(nameElement)
-        modalBody.append(imageElementFront)
-        modalBody.append(imageElementBack)
-        modalBody.append(heightElement)
-        modalBody.append(weightElement)
-        modalBody.append(typesElement)
-        modalBody.append(abilitiesElement)
-
-        modal.classList.add('is-visible')
-
-        modal.addEventListener('click', (e) => {
-            // Since this is also triggered when clicking INSIDE the modal
-            // We only want to close if the user clicks directly on the overlay
-            let target = e.target
-            if (target === modal) {
-                hideModal()
-            }
-        })
     }
+
+    modalTitle.append(nameElement)
+    modalBody.append(imageElementFront)
+    modalBody.append(imageElementBack)
+    modalBody.append(heightElement)
+    modalBody.append(weightElement)
+    modalBody.append(typesElement)
+    modalBody.append(abilitiesElement)
+
+    modal.classList.add('is-visible')
+
+    modal.addEventListener('click', (e) => {
+        // Since this is also triggered when clicking INSIDE the modal
+        // We only want to close if the user clicks directly on the overlay
+        let target = e.target
+        if (target === modal) {
+            hideModal()
+        }
+    })
 
     function addListItem(pokemon) {
         // used to add pokemon to unordered list in HTML
         let pokemonList = document.querySelector('.pokemon-list')
         let listpokemon = document.createElement('li')
         listpokemon.classList.add('list-group-item', 'text-center', 'border-0')
-
-        let.btn = document.createElement('button')
+        let button = document.createElement('button')
+        button.innerText = pokemon.name
+        button.classList.add('btn', 'btn-primary')
+        button.setAttribute('data-target')
+        button.setAttribute('data-toggle', 'modal')
 
         btn.addEventListener('click', function (event) {
             showDetails(pokemon)
         })
-
-        btn.innerText = pokemon.name
-        listpokemon.append(btn)
-        pokemonList.append(listpokemon)
     }
 
     window.addEventListener('keydown', (e) => {
