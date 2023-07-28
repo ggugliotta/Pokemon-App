@@ -75,11 +75,10 @@ let pokemonRepository = (function () {
         modalBody.empty()
         //modalHeader.empty(); Why is this one commented out?
 
-        let modal = document.createElement('div')
         modal.classList.add('modal')
 
         // Add the new modal content
-        let closeButtonElement = document.createElement('button')
+        let closeButtonElement = $(btn - primary)
         closeButtonElement.classList.add('modal-close')
         closeButtonElement.innerText = 'Close'
         closeButtonElement.addEventListener('click', hideModal)
@@ -115,21 +114,16 @@ let pokemonRepository = (function () {
         modalBody.append(typesElement)
         modalBody.append(abilitiesElement)
 
-        modalContainer.classList.add('is-visible')
+        modal.classList.add('is-visible')
 
-        modalContainer.addEventListener('click', (e) => {
+        modal.addEventListener('click', (e) => {
             // Since this is also triggered when clicking INSIDE the modal
             // We only want to close if the user clicks directly on the overlay
             let target = e.target
-            if (target === modalContainer) {
+            if (target === modal) {
                 hideModal()
             }
         })
-    }
-
-    function hideModal() {
-        let modalContainer = document.querySelector('#modal-container')
-        modalContainer.classList.remove('is-visible')
     }
 
     function addListItem(pokemon) {
@@ -145,16 +139,13 @@ let pokemonRepository = (function () {
         })
 
         btn.innerText = pokemon.name
-        listpokemon.appendChild(btn)
-        pokemonList.appendChild(listpokemon)
+        listpokemon.append(btn)
+        pokemonList.append(listpokemon)
     }
 
     window.addEventListener('keydown', (e) => {
-        let modalContainer = document.querySelector('#modal-container')
-        if (
-            e.key === 'Escape' &&
-            modalContainer.classList.contains('is-visible')
-        ) {
+        let modal = document.querySelector('#modal')
+        if (e.key === 'Escape' && modal.classList.contains('is-visible')) {
             hideModal()
         }
     })
