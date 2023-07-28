@@ -11,13 +11,11 @@ This project is a small web application built with HTML, CSS, and Javascript tha
 🌱 I began this project as a tool to learn **Javascript, JQuery, and Bootstrap** and enhance my skillset in **HTML and CSS.**
 
 ## How to run the project 
-
+This project can be run here: ()
 
 ## Project dependencies 
-Javascript version 
-JS Popper version 1.14.7
-JQuery version 3.3.1.min
-Bootstrap version 4.3.1
+
+This project utilizes JS Popper version 1.14.7, JQuery version 3.3.1.min, and Bootstrap version 4.3.1. In addition, I also used ES Lint and Prettier. ES Lint rules are documented below.
 
 ESLint rules
     "rules": {
@@ -25,8 +23,10 @@ ESLint rules
     }
 
 ## API Information 
-  [API Link] = (https://pokeapi.co/api/v2/pokemon/?limit=150)
 
-📫 Available at **gabriellagugliotta96@gmail.com** 
+Check out the link to the pokemon database here: [API] = (https://pokeapi.co/api/v2/pokemon/?limit=150)
+
+
+<h3 align: "center" >📫 Feel free to reach out to me at **gabriellagugliotta96@gmail.com** with any questions regarding this project. </h3>
 
 
