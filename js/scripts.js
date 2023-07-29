@@ -1,4 +1,4 @@
-let pokemonRepository = function () {
+let pokemonRepository = (function () {
     //wrapped pokemonList inside IIFE (Immediately Invoked Function Expression)
     let pokemonList = []
 
@@ -159,7 +159,7 @@ let pokemonRepository = function () {
         modalBody.append(typesElement)
         modalBody.append(abilitiesElement)
     }
-}
+})()
 
 // Return
 return {
