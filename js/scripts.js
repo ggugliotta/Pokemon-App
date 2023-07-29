@@ -161,7 +161,7 @@ let pokemonRepository = (function () {
     }
 
     window.addEventListener('keydown', (e) => {
-        let modalContainer = document.querySelector(modal)
+        let modalContainer = $(modal)
         if (
             e.key === 'Escape' &&
             modalContainer.classList.contains('isVisible')
@@ -170,7 +170,7 @@ let pokemonRepository = (function () {
         }
     })
 
-    let modalContainer = document.querySelector(modal)
+    let modalContainer = $(modal)
     modalContainer.addeventListener('click', (e) => {
         let target = e.target
         if (target === modalContainer) {
@@ -179,7 +179,7 @@ let pokemonRepository = (function () {
     })
 
     function hideModal() {
-        let modalContainer = document.querySelector(modal)
+        let modalContainer = $(modal)
         modalContainer.classList.remove('is-visible')
     }
 
