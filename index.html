@@ -52,8 +52,7 @@
                 </ul>
             </div>
         </nav>
-        <h1>Pokedex</h1>
-        <p>List of some Pokemons stats</p>
+        <h1 class="text-center">Pokedex</h1>
 
         <ul class="list-group"></ul>
 
@@ -77,10 +76,10 @@
             aria-hidden="true"
         >
             <div
-                class="modal-dialog modal-dialog-centered modal-sm"
+                class="modal-dialog modal-dialog-centered modal"
                 aria-hidden="true"
             >
-                <div class="modal-content" role="document">
+                <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="Modal">Pokemon</h5>
                         <button
@@ -93,26 +92,21 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="text-center">
-                            <img
-                                class="modal-img"
-                                src="#"
-                                alt=""
-                                width="180"
-                                height="180"
-                            />
-                        </div>
-                        <div class="modal-footer">
-                            <button
-                                type="button"
-                                class="btn btn-secondary"
-                                data-dismiss="modal"
-                                data-toggle="modal"
-                                data-target=".bd-example-modal-lg"
-                            >
-                                Close
-                            </button>
-                        </div>
+                        <img class="img-fluid" src="#" alt="Responsive image" />
+                        <div class="pokemonHeight w-bold"></div>
+                        <div class="pokemonWeight fs-6 fw-bold"></div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                            data-toggle="modal"
+                            data-target=".bd-example-modal-lg"
+                        >
+                            Close
+                        </button>
                     </div>
                 </div>
             </div>

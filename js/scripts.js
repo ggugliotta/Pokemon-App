@@ -51,6 +51,24 @@ let pokemonRepository = (function () {
             })
     }
 
+    function get() {
+        fetch(vm.options.apiUrl + vm.options.urlEndpoint)
+            .then((response) => response.json())
+            .then((data) => displayMessage(JSON.stringify(data)))
+            .catch((error) => {
+                displayError()
+            })
+    }
+
+    function displayError(msg) {
+        if (msg) {
+            $('#error').text(msg)
+            $('#error').removeClass('d-none')
+        } else {
+            $('#error').addClass('d-none')
+        }
+    }
+
     function loadDetails(item) {
         //load data on individual pokemon
         let detailUrl = pokemon.detailsUrl
