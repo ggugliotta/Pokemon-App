@@ -159,19 +159,19 @@ let pokemonRepository = (function () {
         modalBody.append(typesElement)
         modalBody.append(abilitiesElement)
     }
-})()
 
-// Return
-return {
-    //returning functions so that they can be used outside of the IIFE
-    add: add,
-    addListItem: addListItem,
-    loadList: loadList,
-    getAllPokemon: getAllPokemon,
-    loadDetails: loadDetails,
-    showDetails: showDetails,
-    addListItem: addListItem,
-}
+    // Return
+    return {
+        //returning functions so that they can be used outside of the IIFE
+        add: add,
+        addListItem: addListItem,
+        loadList: loadList,
+        getAllPokemon: getAllPokemon,
+        loadDetails: loadDetails,
+        showDetails: showDetails,
+        addListItem: addListItem,
+    }
+})()
 
 pokemonRepository.loadList().then(function () {
     pokemonRepository.getAllPokemon().forEach(function (pokemon) {
