@@ -27,3 +27,12 @@ html {
     flex-grow: 1;
     flex-shrink: 1;
 }
+
+body,
+.list-group-item {
+    background-color: #bbd5fc;
+}
+
+.modal-content {
+    background-color: #86a0ee;
+}

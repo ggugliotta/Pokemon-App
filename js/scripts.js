@@ -14,6 +14,30 @@ let pokemonRepository = (function () {
         }
     }
 
+    function addListItem(pokemon) {
+        listpokemon.classList.add('list-group-item', 'text-center', 'border-0')
+        let button = '.btn'
+
+        button.classList.add('btn', 'btn-primary')
+
+        button.setAttribute('data-toggle', 'modal')
+        button.setAttribute('data-target', '#exampleModal')
+
+        btn.addEventListener('click', function () {
+            showDetails(pokemon)
+
+            btn.innerText = pokemon.name
+            pokemonListItem.appendChild(btn)
+            pokemonList.appendChild(pokemonListItem)
+        })
+    }
+
+    function getAllPokemon() {
+        return pokemonList
+    }
+
+    showLoadingMessage()
+
     function loadList() {
         //fetch data from api and add to pokemonList
         return fetch(apiUrl)
@@ -21,25 +45,25 @@ let pokemonRepository = (function () {
                 return response.json()
             })
             .then(function (json) {
+                hideLoadingMessage()
                 json.results.forEach(function (item) {
                     let pokemon = {
                         name: item.name,
                         detailsUrl: item.url,
+                        height: item.height,
                     }
-                    add(pokemon)
+                    addPokemon(pokemon)
                 })
             })
             .catch(function (e) {
+                hideLoadingMessage()
                 console.error(e)
             })
     }
 
-    function getAllPokemon() {
-        return pokemonList
-    }
-
     function loadDetails(item) {
         //load data on individual pokemon
+        let detailUrl = pokemon.detailsUrl
         return fetch(item.detailsUrl)
             .then(function (response) {
                 return response.json()
@@ -58,18 +82,31 @@ let pokemonRepository = (function () {
             })
     }
 
-    function addListItem(pokemon) {
-        // used to add pokemon to unordered list in HTML
-        listpokemon.classList.add('list-group-item', 'text-center', 'border-0')
-        let button = '.btn'
-        button.innerText = pokemon.name
-        button.classList.add('btn', 'btn-primary')
-        button.setAttribute('data-target')
-        button.setAttribute('data-toggle', 'modal')
+    function showDetails(pokemon) {
+        loadDetails(pokemon)
+            .then(() => {
+                showModal(
+                    item.name,
+                    item.height,
+                    item.imageUrl,
+                    item.weight,
+                    item.abilities
+                )
+                return pokemon
+            })
+            .catch(() => {})
+    }
 
-        btn.addEventListener('click', function (event) {
-            showDetails(pokemon)
-        })
+    function showLoadingMessage() {
+        let loadingDiv = document.createElement('div')
+        loadingDiv.classList.add('spinner-border', 'text-light')
+        let pokemonUL = document.querySelector('ul')
+        pokemonUL.appendChild(loadingDiv)
+    }
+
+    function hideLoadingMessage() {
+        let pokemonUL = document.querySelector('ul')
+        pokemonUL.firstChild.remove()
     }
 
     function showModal(pokemon) {
@@ -122,6 +159,29 @@ let pokemonRepository = (function () {
         modalBody.append(weightElement)
         modalBody.append(typesElement)
         modalBody.append(abilitiesElement)
+    }
+
+    window.addEventListener('keydown', (e) => {
+        let modalContainer = document.querySelector(exampleModal1)
+        if (
+            e.key === 'Escape' &&
+            modalContainer.classList.contains('isVisible')
+        ) {
+            hideModal()
+        }
+    })
+
+    let modalContainer = document.querySelector(exampleModal1)
+    modalContainer.addeventListener('click', (e) => {
+        let target = e.target
+        if (target === modalContainer) {
+            hideModal()
+        }
+    })
+
+    function hideModal() {
+        let modalContainer = document.querySelector(exampleModal1)
+        modalContainer.classList.remove('is-visible')
     }
 
     // Return
