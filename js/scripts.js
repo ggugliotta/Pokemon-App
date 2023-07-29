@@ -52,7 +52,7 @@ let pokemonRepository = (function () {
                         detailsUrl: item.url,
                         height: item.height,
                     }
-                    addPokemon(pokemon)
+                    add(pokemon)
                 })
             })
             .catch(function (e) {
