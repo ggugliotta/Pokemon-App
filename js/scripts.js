@@ -165,6 +165,7 @@ let pokemonRepository = (function () {
 return {
     //returning functions so that they can be used outside of the IIFE
     add: add,
+    addListItem: addListItem,
     loadList: loadList,
     getAllPokemon: getAllPokemon,
     loadDetails: loadDetails,
