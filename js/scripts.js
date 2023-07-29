@@ -1,4 +1,4 @@
-let pokemonRepository = (function () {
+let pokemonRepository = function () {
     //wrapped pokemonList inside IIFE (Immediately Invoked Function Expression)
     let pokemonList = []
 
@@ -159,41 +159,18 @@ let pokemonRepository = (function () {
         modalBody.append(typesElement)
         modalBody.append(abilitiesElement)
     }
+}
 
-    window.addEventListener('keydown', (e) => {
-        let modalContainer = $(modal)
-        if (
-            e.key === 'Escape' &&
-            modalContainer.classList.contains('isVisible')
-        ) {
-            hideModal()
-        }
-    })
-
-    let modalContainer = $(modal)
-    modalContainer.addeventListener('click', (e) => {
-        let target = e.target
-        if (target === modalContainer) {
-            hideModal()
-        }
-    })
-
-    function hideModal() {
-        let modalContainer = $(modal)
-        modalContainer.classList.remove('is-visible')
-    }
-
-    // Return
-    return {
-        //returning functions so that they can be used outside of the IIFE
-        add: add,
-        loadList: loadList,
-        getAllPokemon: getAllPokemon,
-        loadDetails: loadDetails,
-        showDetails: showDetails,
-        addListItem: addListItem,
-    }
-})()
+// Return
+return {
+    //returning functions so that they can be used outside of the IIFE
+    add: add,
+    loadList: loadList,
+    getAllPokemon: getAllPokemon,
+    loadDetails: loadDetails,
+    showDetails: showDetails,
+    addListItem: addListItem,
+}
 
 pokemonRepository.loadList().then(function () {
     pokemonRepository.getAllPokemon().forEach(function (pokemon) {
