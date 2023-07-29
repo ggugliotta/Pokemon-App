@@ -15,20 +15,18 @@ let pokemonRepository = (function () {
     }
 
     function addListItem(pokemon) {
-        listpokemon.classList.add('list-group-item', 'text-center', 'border-0')
+        pokemon.addClass('list-group-item', 'text-center', 'border-0')
         let button = '.btn'
 
-        button.classList.add('btn', 'btn-primary')
+        btn.addClass('btn', 'btn-primary')
 
-        button.setAttribute('data-toggle', 'modal')
-        button.setAttribute('data-target', '#exampleModal')
+        btn.setAttribute('data-toggle', 'modal')
+        btn.setAttribute('data-target', '#exampleModal')
 
         btn.addEventListener('click', function () {
             showDetails(pokemon)
 
             btn.innerText = pokemon.name
-            pokemonListItem.appendChild(btn)
-            pokemonList.appendChild(pokemonListItem)
         })
     }
 
