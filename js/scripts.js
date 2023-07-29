@@ -162,7 +162,7 @@ let pokemonRepository = (function () {
     }
 
     window.addEventListener('keydown', (e) => {
-        let modalContainer = document.querySelector(exampleModal1)
+        let modalContainer = document.querySelector(modal)
         if (
             e.key === 'Escape' &&
             modalContainer.classList.contains('isVisible')
