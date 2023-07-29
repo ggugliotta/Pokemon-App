@@ -99,7 +99,7 @@ let pokemonRepository = (function () {
 
     function showLoadingMessage() {
         let loadingDiv = document.createElement('div')
-        loadingDiv.classList.add('spinner-border', 'text-light')
+        loadingDiv.classList.add('text-light')
         let pokemonUL = document.querySelector('ul')
         pokemonUL.appendChild(loadingDiv)
     }
@@ -119,7 +119,6 @@ let pokemonRepository = (function () {
         // Clear all existing modal content
         modalTitle.empty()
         modalBody.empty()
-        //modalHeader.empty(); Why is this one commented out?
 
         modal.classList.add('modal')
 
@@ -171,7 +170,7 @@ let pokemonRepository = (function () {
         }
     })
 
-    let modalContainer = document.querySelector(exampleModal1)
+    let modalContainer = document.querySelector(modal)
     modalContainer.addeventListener('click', (e) => {
         let target = e.target
         if (target === modalContainer) {
@@ -180,7 +179,7 @@ let pokemonRepository = (function () {
     })
 
     function hideModal() {
-        let modalContainer = document.querySelector(exampleModal1)
+        let modalContainer = document.querySelector(modal)
         modalContainer.classList.remove('is-visible')
     }
 
