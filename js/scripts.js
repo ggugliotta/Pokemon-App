@@ -15,19 +15,11 @@ let pokemonRepository = (function () {
     }
 
     function addListItem(pokemon) {
-        pokemon.addClass('list-group-item', 'text-center', 'border-0')
-        let button = '.btn'
-
-        btn.addClass('btn', 'btn-primary')
-
-        btn.setAttribute('data-toggle', 'modal')
-        btn.setAttribute('data-target', '#exampleModal')
-
-        btn.addEventListener('click', function () {
-            showDetails(pokemon)
-
-            btn.innerText = pokemon.name
-        })
+        let button = document.createElement('button')
+        button.innerText = pokemon.name
+        button.classList.add('btn', 'btn-primary', 'w-100')
+        button.setAttribute('data-target', '#modal-container')
+        button.setAttribute('data-toggle', 'modal')
     }
 
     function getAllPokemon() {
