@@ -1,23 +1,14 @@
-css {
-    background-color: #ffffff;
+html {
+    background-color: #fff;
 }
-
 * {
     padding: 15px;
 }
-
 .page-header {
     display: flex;
     width: 100%;
     padding: 5px;
 }
-
-.page-header {
-    display: flex;
-    width: 100%;
-    padding: 5px;
-}
-
 .page-footer {
     clear: both;
     display: flex;
@@ -27,12 +18,10 @@ css {
     flex-grow: 1;
     flex-shrink: 1;
 }
-
-body,
-.list-group-item {
+.list-group-item,
+body {
     background-color: #bbd5fc;
 }
-
 .modal-content {
     background-color: #86a0ee;
 }
