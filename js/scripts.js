@@ -27,13 +27,13 @@ let pokemonRepository = (function () {
         button.setAttribute('data-target', '#exampleModal')
         button.setAttribute('data-toggle', 'modal')
 
-        pokemonList.appendChild(listItem);
-        listItem.appendChild(button);
+        pokemonList.appendChild(listItem)
+        listItem.appendChild(button)
 
         //When user clicks on pokemon, show details
-        button.addEventListener('click', function() {
-            showDetails(pokemon);
-        });
+        button.addEventListener('click', function () {
+            showDetails(pokemon)
+        })
     }
 
     function getAllPokemon() {
@@ -84,9 +84,9 @@ let pokemonRepository = (function () {
 
     function loadDetails(pokemon) {
         //load data on individual pokemon
-        let url = pokemon.detailsUrl;
+        let url = pokemon.detailsUrl
         return fetch(url)
-            .then(function(response) {
+            .then(function (response) {
                 return response.json()
             })
             .then(function (details) {
@@ -103,7 +103,8 @@ let pokemonRepository = (function () {
     }
 
     function showDetails(pokemon) {
-        loadDetails(pokemon).then(() => {
+        loadDetails(pokemon)
+            .then(() => {
                 showModal(pokemon)
             })
             .catch((e) => {
@@ -124,17 +125,17 @@ let pokemonRepository = (function () {
     }
 
     function showModal(pokemon) {
-        $('.modal-title').text(pokemon.name);
+        $('.modal-title').text(pokemon.name)
 
         $('.img-fluid').attr({
             src: pokemon.imageUrl,
-            alt: pokemon.name
-        });
+            alt: pokemon.name,
+        })
 
         $('.pokemonHeight').text(`Height: ${pokemon.height}`)
-        $('.pokemonWeight').text(`Height: ${pokemon.weight}`)
+        $('.pokemonWeight').text(`Weight: ${pokemon.weight}`)
 
-        let types = pokemon.types.map(item => item.type.name).join(', ');
+        let types = pokemon.types.map((item) => item.type.name).join(', ')
         $('.pokemonTypes').text(`Types: ${types}`)
     }
 
