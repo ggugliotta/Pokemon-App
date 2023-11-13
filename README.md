@@ -6,6 +6,9 @@
 🔭 I’m currently working on this [pokemon App. Check it out here:](github.com/ggugliotta/Pokemon-App) Learn more below! 
 
 ## Project description
+
+![image](https://github.com/ggugliotta/Pokemon-App/assets/110942966/9285662e-c253-45b3-81bc-8404f65cd564)
+
 This project is a small web application built with HTML, CSS, and Javascript that loads data from an external API and enables viewing of the API data points in detail.
 
 🌱 I began this project as a tool to learn **Javascript, JQuery, and Bootstrap** and enhance my skillset in **HTML and CSS.**
