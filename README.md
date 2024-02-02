@@ -3,7 +3,7 @@
 <h1 align="center">Hi 👋, I'm Gabriella Gugliotta</h1>
 <h3 align="center">I am a passionate full stack developer from the United States.</h3>
 
-🔭 I’m currently working on this [pokemon App. Check it out here:](github.com/ggugliotta/Pokemon-App) Learn more below! 
+🔭 I’m currently working on this [pokemon App. Check it out here:](https://ggugliotta.github.io/Pokemon-App/) Learn more below! 
 
 ## Project description
 
