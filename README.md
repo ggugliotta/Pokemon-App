@@ -7,7 +7,7 @@
 
 ## Project description
 
-![image](https://github.com/ggugliotta/Pokemon-App/assets/110942966/9285662e-c253-45b3-81bc-8404f65cd564)
+![image](Pokedex.png)
 
 This project is a small web application built with HTML, CSS, and Javascript that loads data from an external API and enables viewing of the API data points in detail.
 
